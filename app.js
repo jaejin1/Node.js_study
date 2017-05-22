@@ -6,6 +6,24 @@ app.set('view engine','jade');
 app.set('views','./views');   //jade 파일은 views 안에다 넣어야한다.  기본값으로 views를 가지고 있음.
 
 app.use(express.static('public'));  //정적인 파일이 위치하는 곳을 지정한다.
+app.get('/topic/:id',function(req,res){
+	var topics = [
+		'Javascript is ...',
+		'Nodejs is ... ',
+		'Express is ...'
+	];
+	var as = `
+		<a href="/topic?id=0">JavaScript</a><br>
+		<a href="/topic?id=1">Nodejs</a><br>
+		<a href="/topic?id=2">Express</a><br>
+		${topics[req.params.id]}
+	`
+	res.send(as);
+})
+
+app.get('/topic/:id/:mode',function(req,res){
+	res.send(req.params.id+','+req.params.mode)
+})
 app.get('/template', function(req,res){
 	res.render('temp', {time:Date(), _title:'Jade'});  //템플릿 파일을 읽어오는ㄱ누나
 })
