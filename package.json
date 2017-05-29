@@ -12,6 +12,8 @@
     "body-parser": "^1.17.2",
     "express": "^4.15.3",
     "jade": "^1.11.0",
+    "node_mysql": "^1.0.1",
+    "pug": "^2.0.0-rc.1",
     "underscore": "^1.8.3"
   }
 }
